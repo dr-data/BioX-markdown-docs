@@ -31,7 +31,6 @@ bun install
 bun run dev
 ```
 
-Visit http://localhost:5173
 
 ### Build
 
