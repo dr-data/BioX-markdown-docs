@@ -991,6 +991,126 @@ html.dark .VPFeature {
 }
 
 /* ==========================================================================
+   Homepage - Larger Font Sizes
+   ========================================================================== */
+
+/* Hero Section - Much larger text */
+.VPHero .name {
+  font-size: 4rem !important;
+  line-height: 1.1 !important;
+}
+
+.VPHero .text {
+  font-size: 2.5rem !important;
+  line-height: 1.3 !important;
+  margin-top: 1rem !important;
+}
+
+.VPHero .tagline {
+  font-size: 1.5rem !important;
+  line-height: 1.5 !important;
+  margin-top: 1.5rem !important;
+}
+
+/* Hero action buttons */
+.VPHero .actions .VPButton {
+  font-size: 1.125rem !important;
+  padding: 0.875rem 1.75rem !important;
+}
+
+/* Feature Cards - Larger text */
+.VPFeature .title {
+  font-size: 1.5rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+.VPFeature .details {
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+}
+
+.VPFeature .icon {
+  font-size: 2.5rem !important;
+}
+
+/* Homepage content below hero (Quick Start section, etc.) */
+.VPHome + .vp-doc,
+.VPHome .vp-doc,
+.Layout .VPContent.has-sidebar .content-container .vp-doc:first-of-type {
+  font-size: 1.25rem !important;
+}
+
+/* Larger headings on homepage */
+.VPHome ~ .vp-doc h2,
+.is-home .vp-doc h2 {
+  font-size: 2.25rem !important;
+  margin-top: 2.5rem !important;
+}
+
+.VPHome ~ .vp-doc h3,
+.is-home .vp-doc h3 {
+  font-size: 1.75rem !important;
+}
+
+/* Larger paragraph text on homepage */
+.VPHome ~ .vp-doc p,
+.is-home .vp-doc p {
+  font-size: 1.25rem !important;
+  line-height: 1.8 !important;
+}
+
+/* Larger list items on homepage */
+.VPHome ~ .vp-doc li,
+.is-home .vp-doc li {
+  font-size: 1.25rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Larger code blocks on homepage */
+.VPHome ~ .vp-doc pre,
+.is-home .vp-doc pre {
+  font-size: 1.0625rem !important;
+}
+
+/* Responsive adjustments for homepage */
+@media (max-width: 960px) {
+  .VPHero .name {
+    font-size: 3rem !important;
+  }
+
+  .VPHero .text {
+    font-size: 2rem !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 1.25rem !important;
+  }
+
+  .VPFeature .title {
+    font-size: 1.25rem !important;
+  }
+
+  .VPFeature .details {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPHero .name {
+    font-size: 2.5rem !important;
+  }
+
+  .VPHero .text {
+    font-size: 1.5rem !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* ==========================================================================
    Print Styles
    ========================================================================== */
 

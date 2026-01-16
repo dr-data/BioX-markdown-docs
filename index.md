@@ -10,6 +10,9 @@ hero:
       text: Get Started
       link: /package/
     - theme: alt
+      text: npm Package
+      link: https://www.npmjs.com/package/@bio-x/markdown
+    - theme: alt
       text: View Demo
       link: https://biox-markdown.vercel.app/
     - theme: alt
