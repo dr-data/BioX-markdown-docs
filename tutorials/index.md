@@ -9,7 +9,7 @@ Step-by-step guides for integrating BioX-markdown into your projects.
 Learn how to integrate BioX-markdown into your project:
 
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 // Simple markdown rendering
 const markdown = `
@@ -29,7 +29,7 @@ document.getElementById('content').innerHTML = html
 ### With React
 
 ```jsx
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 import { useMemo } from 'react'
 
 function MarkdownContent({ markdown }) {
@@ -44,7 +44,7 @@ function MarkdownContent({ markdown }) {
 ### With Next.js
 
 ```jsx
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 export default function BlogPost({ content }) {
   const html = render(content)

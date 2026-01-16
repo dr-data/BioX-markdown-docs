@@ -5,17 +5,17 @@ Complete documentation for the BioX-markdown package.
 ## Installation
 
 ```bash
-npm install @biox/markdown
+npm install @bio-x/markdown
 # or
-yarn add @biox/markdown
+yarn add @bio-x/markdown
 # or
-bun add @biox/markdown
+bun add @bio-x/markdown
 ```
 
 ## Quick Start
 
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const markdown = '# Hello World\n\nThis is **BioX** markdown!'
 const html = render(markdown)

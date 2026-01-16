@@ -75,7 +75,7 @@ $\alpha, \beta, \gamma, \delta, \epsilon, \theta, \lambda, \mu, \pi, \sigma, \om
 Enable LaTeX rendering in your code:
 
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const markdown = `
 # Mathematical Formula

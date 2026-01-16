@@ -1,0 +1,1007 @@
+/**
+ * BioX Theme for VitePress
+ * Ported from @bio-x/theme (Theme UI)
+ *
+ * Design tokens and styles converted to CSS custom properties
+ */
+
+/* ==========================================================================
+   Phantom Sans Font Import
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2') format('woff2'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2') format('woff2'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2') format('woff2'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   CSS Custom Properties - Design Tokens
+   ========================================================================== */
+
+:root {
+  /* === Base Colors === */
+  --biox-darker: #121217;
+  --biox-dark: #17171d;
+  --biox-darkless: #252429;
+  --biox-black: #1f2d3d;
+  --biox-steel: #273444;
+  --biox-slate: #3c4858;
+  --biox-muted: #8492a6;
+  --biox-smoke: #e0e6ed;
+  --biox-snow: #f9fafc;
+  --biox-white: #ffffff;
+
+  /* === Accent Colors === */
+  --biox-red: #ec3750;
+  --biox-orange: #ff8c37;
+  --biox-yellow: #f1c40f;
+  --biox-green: #33d6a6;
+  --biox-cyan: #5bc0de;
+  --biox-blue: #338eda;
+  --biox-purple: #a633d6;
+
+  /* === Social Colors === */
+  --biox-twitter: #1da1f2;
+  --biox-facebook: #3b5998;
+  --biox-instagram: #e1306c;
+
+  /* === Semantic Colors (Light Mode) === */
+  --biox-text: var(--biox-black);
+  --biox-background: var(--biox-white);
+  --biox-elevated: var(--biox-white);
+  --biox-sheet: var(--biox-snow);
+  --biox-sunken: var(--biox-smoke);
+  --biox-border: var(--biox-smoke);
+  --biox-placeholder: var(--biox-muted);
+  --biox-secondary: var(--biox-slate);
+  --biox-primary: var(--biox-red);
+  --biox-accent: var(--biox-blue);
+
+  /* === Typography === */
+  --biox-font-heading: 'Phantom Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --biox-font-body: 'Phantom Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --biox-font-mono: 'SF Mono', 'Roboto Mono', Menlo, Consolas, monospace;
+
+  /* === Font Sizes (increased for better readability) === */
+  --biox-font-size-0: 0.875rem;  /* 14px */
+  --biox-font-size-1: 1.125rem;  /* 18px - base body text */
+  --biox-font-size-2: 1.375rem;  /* 22px */
+  --biox-font-size-3: 1.75rem;   /* 28px */
+  --biox-font-size-4: 2.25rem;   /* 36px */
+  --biox-font-size-5: 3.25rem;   /* 52px */
+  --biox-font-size-6: 4.5rem;    /* 72px */
+  --biox-font-size-7: 6.5rem;    /* 104px */
+
+  /* === Line Heights === */
+  --biox-line-height-limit: 0.875;
+  --biox-line-height-title: 1;
+  --biox-line-height-heading: 1.125;
+  --biox-line-height-subheading: 1.25;
+  --biox-line-height-caption: 1.375;
+  --biox-line-height-body: 1.5;
+
+  /* === Font Weights === */
+  --biox-font-weight-body: 400;
+  --biox-font-weight-bold: 700;
+
+  /* === Letter Spacing === */
+  --biox-letter-spacing-title: -0.009em;
+  --biox-letter-spacing-headline: 0.009em;
+
+  /* === Spacing Scale === */
+  --biox-space-0: 0;
+  --biox-space-1: 0.25rem;   /* 4px */
+  --biox-space-2: 0.5rem;    /* 8px */
+  --biox-space-3: 1rem;      /* 16px */
+  --biox-space-4: 2rem;      /* 32px */
+  --biox-space-5: 4rem;      /* 64px */
+  --biox-space-6: 8rem;      /* 128px */
+  --biox-space-7: 16rem;     /* 256px */
+
+  /* === Sizes === */
+  --biox-size-wide-plus: 128rem;  /* 2048px */
+  --biox-size-wide: 96rem;        /* 1536px */
+  --biox-size-layout-plus: 75rem; /* 1200px */
+  --biox-size-layout: 64rem;      /* 1024px */
+  --biox-size-copy-ultra: 61.25rem; /* 980px */
+  --biox-size-copy-plus: 48rem;   /* 768px */
+  --biox-size-copy: 42.5rem;      /* 680px */
+  --biox-size-narrow-plus: 37.5rem; /* 600px */
+  --biox-size-narrow: 32rem;      /* 512px */
+
+  /* === Border Radius === */
+  --biox-radius-small: 4px;
+  --biox-radius-default: 8px;
+  --biox-radius-extra: 12px;
+  --biox-radius-ultra: 16px;
+  --biox-radius-circle: 99999px;
+
+  /* === Shadows === */
+  --biox-shadow-text: 0 1px 2px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.125);
+  --biox-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.0625), 0 2px 4px rgba(0, 0, 0, 0.0625);
+  --biox-shadow-card: 0 4px 8px rgba(0, 0, 0, 0.125);
+  --biox-shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.0625), 0 8px 12px rgba(0, 0, 0, 0.125);
+
+  /* === Transitions === */
+  --biox-transition-fast: 0.125s ease-in-out;
+  --biox-transition-normal: 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   Dark Mode - VitePress uses .dark class on html element
+   ========================================================================== */
+
+html.dark {
+  --biox-text: #ffffff;
+  --biox-background: #17171d;
+  --biox-elevated: #252429;
+  --biox-sheet: #252429;
+  --biox-sunken: #121217;
+  --biox-border: #252429;
+  --biox-placeholder: #3c4858;
+  --biox-secondary: #8492a6;
+  --biox-accent: #5bc0de;
+}
+
+/* Dark mode VitePress variable overrides */
+html.dark {
+  --vp-c-bg: #17171d;
+  --vp-c-bg-alt: #252429;
+  --vp-c-bg-elv: #252429;
+  --vp-c-bg-soft: #121217;
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #8492a6;
+  --vp-c-text-3: #8492a6;
+  --vp-c-border: #252429;
+  --vp-c-divider: #252429;
+  --vp-c-gutter: #252429;
+  --vp-code-block-bg: #121217;
+  --vp-code-copy-code-bg: #252429;
+  --vp-code-copy-code-hover-bg: #3c4858;
+  --vp-sidebar-bg-color: #17171d;
+  --vp-nav-bg-color: #17171d;
+  --vp-c-brand-soft: rgba(236, 55, 80, 0.2);
+}
+
+/* ==========================================================================
+   VitePress Theme Overrides - Core Variables
+   ========================================================================== */
+
+:root {
+  /* === Brand Colors === */
+  --vp-c-brand-1: var(--biox-red);
+  --vp-c-brand-2: var(--biox-orange);
+  --vp-c-brand-3: var(--biox-red);
+  --vp-c-brand-soft: rgba(236, 55, 80, 0.14);
+
+  /* === Background Colors === */
+  --vp-c-bg: var(--biox-background);
+  --vp-c-bg-alt: var(--biox-sheet);
+  --vp-c-bg-elv: var(--biox-elevated);
+  --vp-c-bg-soft: var(--biox-sunken);
+
+  /* === Text Colors === */
+  --vp-c-text-1: var(--biox-text);
+  --vp-c-text-2: var(--biox-secondary);
+  --vp-c-text-3: var(--biox-muted);
+
+  /* === Border Colors === */
+  --vp-c-border: var(--biox-border);
+  --vp-c-divider: var(--biox-border);
+  --vp-c-gutter: var(--biox-border);
+
+  /* === Typography === */
+  --vp-font-family-base: var(--biox-font-body);
+  --vp-font-family-mono: var(--biox-font-mono);
+
+  /* === Code Block Colors === */
+  --vp-code-block-bg: var(--biox-sunken);
+  --vp-code-line-highlight-color: rgba(236, 55, 80, 0.08);
+  --vp-code-line-number-color: var(--biox-muted);
+  --vp-code-line-diff-add-color: rgba(51, 214, 166, 0.16);
+  --vp-code-line-diff-add-symbol-color: var(--biox-green);
+  --vp-code-line-diff-remove-color: rgba(236, 55, 80, 0.16);
+  --vp-code-line-diff-remove-symbol-color: var(--biox-red);
+  --vp-code-copy-code-bg: var(--biox-sheet);
+  --vp-code-copy-code-hover-bg: var(--biox-smoke);
+
+  /* === Inline Code === */
+  --vp-c-code: var(--biox-purple);
+  --vp-code-bg: var(--biox-sunken);
+
+  /* === Button Colors === */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--biox-white);
+  --vp-button-brand-bg: var(--biox-red);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--biox-white);
+  --vp-button-brand-hover-bg: var(--biox-orange);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--biox-white);
+  --vp-button-brand-active-bg: var(--biox-red);
+
+  /* === Home Hero === */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--biox-red) 0%, var(--biox-orange) 100%);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, var(--biox-red) 10%, var(--biox-orange) 50%, var(--biox-yellow) 100%);
+  --vp-home-hero-image-filter: blur(68px);
+
+  /* === Sidebar === */
+  --vp-sidebar-bg-color: var(--biox-background);
+
+  /* === Nav === */
+  --vp-nav-bg-color: var(--biox-background);
+
+  /* === Z-index === */
+  --vp-z-index-nav: 1000;
+
+  /* === Shadows === */
+  --vp-shadow-1: var(--biox-shadow-small);
+  --vp-shadow-2: var(--biox-shadow-card);
+  --vp-shadow-3: var(--biox-shadow-elevated);
+}
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+
+html {
+  font-family: var(--biox-font-body);
+  font-size: 18px; /* Increased base font size */
+  line-height: var(--biox-line-height-body);
+  font-weight: var(--biox-font-weight-body);
+  color: var(--biox-text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--biox-background);
+  font-size: var(--biox-font-size-1);
+}
+
+/* Ensure VitePress content uses our font size */
+.vp-doc {
+  font-size: var(--biox-font-size-1) !important;
+  line-height: 1.75 !important;
+}
+
+.vp-doc p,
+.vp-doc li {
+  font-size: var(--biox-font-size-1);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--biox-font-heading);
+  font-weight: var(--biox-font-weight-bold);
+  line-height: var(--biox-line-height-heading);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: var(--biox-font-size-5);
+  letter-spacing: var(--biox-letter-spacing-title);
+  line-height: var(--biox-line-height-title);
+}
+
+h2 {
+  font-size: var(--biox-font-size-4);
+  letter-spacing: var(--biox-letter-spacing-title);
+}
+
+h3 {
+  font-size: var(--biox-font-size-3);
+  letter-spacing: var(--biox-letter-spacing-headline);
+}
+
+h4 {
+  font-size: var(--biox-font-size-2);
+}
+
+h5 {
+  font-size: var(--biox-font-size-1);
+}
+
+h6 {
+  font-size: var(--biox-font-size-0);
+}
+
+p {
+  color: var(--biox-text);
+  font-weight: var(--biox-font-weight-body);
+  line-height: var(--biox-line-height-body);
+  margin: var(--biox-space-3) 0;
+}
+
+a {
+  color: var(--biox-primary);
+  text-decoration: underline;
+  text-underline-position: under;
+  transition: text-decoration-style var(--biox-transition-fast);
+}
+
+a:hover,
+a:focus {
+  text-decoration-style: wavy;
+}
+
+/* ==========================================================================
+   Code Blocks - Prism Theme
+   ========================================================================== */
+
+pre {
+  font-family: var(--biox-font-mono);
+  font-size: var(--biox-font-size-1);
+  padding: var(--biox-space-3);
+  color: var(--biox-text);
+  background-color: var(--biox-sunken);
+  overflow: auto;
+  border-radius: var(--biox-radius-default);
+}
+
+pre code {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family: var(--biox-font-mono);
+  font-size: inherit;
+  color: var(--biox-purple);
+  background-color: var(--biox-sunken);
+  border-radius: var(--biox-radius-small);
+  margin: 0 0.25rem;
+  padding: 0.125rem 0.375rem;
+}
+
+/* Prism Syntax Highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation,
+.token.operator,
+.token.entity,
+.token.url {
+  color: var(--biox-muted);
+}
+
+.token.comment {
+  font-style: italic;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.function,
+.token.class-name,
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--biox-red);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--biox-blue);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--biox-orange);
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+li {
+  margin: var(--biox-space-2) 0;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+table {
+  width: 100%;
+  margin: var(--biox-space-4) 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 4px;
+  padding-right: 4px;
+  padding-left: 0;
+  border-color: var(--biox-border);
+  border-bottom-style: solid;
+}
+
+th {
+  vertical-align: bottom;
+  border-bottom-width: 2px;
+  font-weight: var(--biox-font-weight-bold);
+}
+
+td {
+  vertical-align: top;
+  border-bottom-width: 1px;
+}
+
+/* ==========================================================================
+   Horizontal Rule
+   ========================================================================== */
+
+hr {
+  border: 0;
+  border-bottom: 1px solid var(--biox-border);
+  margin: var(--biox-space-4) 0;
+}
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.biox-button,
+.VPButton.brand {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: var(--biox-font-weight-bold);
+  border-radius: var(--biox-radius-circle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--biox-shadow-card);
+  letter-spacing: var(--biox-letter-spacing-headline);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--biox-transition-fast), box-shadow var(--biox-transition-fast);
+}
+
+.biox-button:hover,
+.biox-button:focus,
+.VPButton.brand:hover,
+.VPButton.brand:focus {
+  box-shadow: var(--biox-shadow-elevated);
+  transform: scale(1.0625);
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.biox-card {
+  background-color: var(--biox-elevated);
+  color: var(--biox-text);
+  padding: var(--biox-space-3);
+  border-radius: var(--biox-radius-extra);
+  box-shadow: var(--biox-shadow-card);
+  overflow: hidden;
+}
+
+.biox-card-sunken {
+  background-color: var(--biox-sunken);
+  padding: var(--biox-space-3);
+  border-radius: var(--biox-radius-extra);
+}
+
+.biox-card-interactive {
+  background-color: var(--biox-elevated);
+  color: var(--biox-text);
+  padding: var(--biox-space-3);
+  border-radius: var(--biox-radius-extra);
+  box-shadow: var(--biox-shadow-card);
+  overflow: hidden;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--biox-transition-fast), box-shadow var(--biox-transition-fast);
+}
+
+.biox-card-interactive:hover,
+.biox-card-interactive:focus {
+  transform: scale(1.0625);
+  box-shadow: var(--biox-shadow-elevated);
+}
+
+/* ==========================================================================
+   Badges
+   ========================================================================== */
+
+.biox-badge {
+  border-radius: var(--biox-radius-circle);
+  padding: var(--biox-space-1) var(--biox-space-3);
+  font-size: var(--biox-font-size-1);
+  background-color: var(--biox-muted);
+  color: var(--biox-background);
+  display: inline-block;
+}
+
+.biox-badge-outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
+  font-weight: var(--biox-font-weight-body);
+}
+
+.biox-badge-success {
+  background-color: var(--biox-green);
+  color: var(--biox-white);
+}
+
+.biox-badge-danger {
+  background-color: var(--biox-red);
+  color: var(--biox-white);
+}
+
+.biox-badge-warning {
+  background-color: var(--biox-yellow);
+  color: var(--biox-black);
+}
+
+.biox-badge-info {
+  background-color: var(--biox-blue);
+  color: var(--biox-white);
+}
+
+/* ==========================================================================
+   Alerts
+   ========================================================================== */
+
+.biox-alert {
+  border-radius: var(--biox-radius-default);
+  background-color: var(--biox-orange);
+  color: var(--biox-background);
+  font-weight: var(--biox-font-weight-body);
+  padding: var(--biox-space-3);
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+input,
+textarea,
+select {
+  background-color: var(--biox-elevated);
+  color: var(--biox-text);
+  font-family: inherit;
+  border-radius: var(--biox-radius-default);
+  border: 0;
+  padding: var(--biox-space-2) var(--biox-space-3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--biox-placeholder);
+}
+
+label {
+  color: var(--biox-text);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: var(--biox-line-height-caption);
+  font-size: var(--biox-font-size-2);
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+
+.biox-container {
+  max-width: var(--biox-size-layout);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--biox-space-3);
+  padding-right: var(--biox-space-3);
+}
+
+.biox-container-wide {
+  max-width: var(--biox-size-wide);
+}
+
+.biox-container-copy {
+  max-width: var(--biox-size-copy);
+}
+
+.biox-container-narrow {
+  max-width: var(--biox-size-narrow);
+}
+
+/* ==========================================================================
+   Navigation - Sticky Header
+   ========================================================================== */
+
+.VPNav,
+.biox-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--vp-z-index-nav, 1000);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+html.dark .VPNav,
+html.dark .biox-nav-sticky {
+  background-color: rgba(23, 23, 29, 0.95);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode for code blocks */
+html.dark pre {
+  background-color: #121217;
+}
+
+html.dark code {
+  background-color: #121217;
+  color: #a633d6;
+}
+
+html.dark .token.property,
+html.dark .token.tag,
+html.dark .token.boolean,
+html.dark .token.number,
+html.dark .token.constant,
+html.dark .token.symbol,
+html.dark .token.deleted,
+html.dark .token.function,
+html.dark .token.class-name,
+html.dark .token.regex,
+html.dark .token.important,
+html.dark .token.variable {
+  color: #ec3750;
+}
+
+html.dark .token.atrule,
+html.dark .token.attr-value,
+html.dark .token.keyword {
+  color: #5bc0de;
+}
+
+html.dark .token.selector,
+html.dark .token.attr-name,
+html.dark .token.string,
+html.dark .token.char,
+html.dark .token.builtin,
+html.dark .token.inserted {
+  color: #ff8c37;
+}
+
+/* Dark mode for custom blocks */
+html.dark .custom-block.tip {
+  background-color: rgba(51, 214, 166, 0.15);
+}
+
+html.dark .custom-block.warning {
+  background-color: rgba(241, 196, 15, 0.15);
+}
+
+html.dark .custom-block.danger {
+  background-color: rgba(236, 55, 80, 0.15);
+}
+
+html.dark .custom-block.info {
+  background-color: rgba(51, 142, 218, 0.15);
+}
+
+/* Dark mode for feature cards */
+html.dark .VPFeature {
+  background-color: #252429 !important;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.biox-hero-gradient {
+  padding: var(--biox-space-5) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--biox-white);
+  background: linear-gradient(135deg, var(--biox-red) 0%, var(--biox-orange) 100%);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.biox-footer {
+  background-color: var(--biox-sheet);
+  border-top: 1px solid var(--biox-border);
+  padding: var(--biox-space-5) 0;
+  margin-top: var(--biox-space-6);
+  position: relative;
+}
+
+/* ==========================================================================
+   Translucent Cards
+   ========================================================================== */
+
+.biox-card-translucent {
+  background-color: rgba(255, 255, 255, 0.98);
+  color: var(--biox-text);
+  box-shadow: none;
+  padding: var(--biox-space-3);
+  border-radius: var(--biox-radius-extra);
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .biox-card-translucent {
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .biox-card-translucent {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+.biox-card-translucent-dark {
+  background-color: rgba(0, 0, 0, 0.875);
+  color: var(--biox-white);
+  box-shadow: none;
+  padding: var(--biox-space-3);
+  border-radius: var(--biox-radius-extra);
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .biox-card-translucent-dark {
+    background-color: rgba(0, 0, 0, 0.625);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+  }
+}
+
+/* ==========================================================================
+   Text Variants
+   ========================================================================== */
+
+.biox-text-ultratitle {
+  font-size: var(--biox-font-size-6);
+  line-height: var(--biox-line-height-limit);
+  font-weight: var(--biox-font-weight-bold);
+  letter-spacing: var(--biox-letter-spacing-title);
+}
+
+.biox-text-title {
+  font-size: var(--biox-font-size-5);
+  font-weight: var(--biox-font-weight-bold);
+  letter-spacing: var(--biox-letter-spacing-title);
+  line-height: var(--biox-line-height-title);
+}
+
+.biox-text-subtitle {
+  margin-top: var(--biox-space-3);
+  font-size: var(--biox-font-size-2);
+  font-weight: var(--biox-font-weight-body);
+  letter-spacing: var(--biox-letter-spacing-headline);
+  line-height: var(--biox-line-height-subheading);
+}
+
+.biox-text-headline {
+  font-weight: var(--biox-font-weight-bold);
+  letter-spacing: var(--biox-letter-spacing-headline);
+  line-height: var(--biox-line-height-heading);
+  font-size: var(--biox-font-size-4);
+  margin-top: var(--biox-space-3);
+  margin-bottom: var(--biox-space-3);
+}
+
+.biox-text-subheadline {
+  font-weight: var(--biox-font-weight-bold);
+  letter-spacing: var(--biox-letter-spacing-headline);
+  font-size: var(--biox-font-size-2);
+  margin-top: 0;
+  margin-bottom: var(--biox-space-3);
+}
+
+.biox-text-eyebrow {
+  color: var(--biox-muted);
+  font-size: var(--biox-font-size-3);
+  font-weight: var(--biox-font-weight-bold);
+  letter-spacing: var(--biox-letter-spacing-headline);
+  line-height: var(--biox-line-height-subheading);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: var(--biox-space-2);
+}
+
+.biox-text-lead {
+  font-size: var(--biox-font-size-2);
+  margin: var(--biox-space-2) 0;
+}
+
+.biox-text-caption {
+  color: var(--biox-muted);
+  font-weight: 500;
+  letter-spacing: var(--biox-letter-spacing-headline);
+  line-height: var(--biox-line-height-caption);
+}
+
+/* ==========================================================================
+   Gradient Text Utility
+   ========================================================================== */
+
+.biox-gradient-text {
+  background: linear-gradient(135deg, var(--biox-orange), var(--biox-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   VitePress Specific Overrides
+   ========================================================================== */
+
+/* Content container */
+.VPDoc .container {
+  max-width: var(--biox-size-copy-plus);
+}
+
+/* Feature cards on homepage */
+.VPFeature {
+  background-color: var(--biox-elevated) !important;
+  border-radius: var(--biox-radius-extra) !important;
+  box-shadow: var(--biox-shadow-card) !important;
+  border: none !important;
+  transition: transform var(--biox-transition-fast), box-shadow var(--biox-transition-fast) !important;
+}
+
+.VPFeature:hover {
+  transform: scale(1.02);
+  box-shadow: var(--biox-shadow-elevated) !important;
+}
+
+/* Homepage hero */
+.VPHero .name {
+  font-family: var(--biox-font-heading);
+}
+
+.VPHero .text {
+  font-family: var(--biox-font-body);
+  color: var(--biox-secondary);
+}
+
+.VPHero .tagline {
+  font-family: var(--biox-font-body);
+  color: var(--biox-muted);
+}
+
+/* Sidebar links */
+.VPSidebar a {
+  font-family: var(--biox-font-body);
+}
+
+.VPSidebar a.active {
+  color: var(--biox-primary);
+}
+
+/* Nav links */
+.VPNavBarMenuLink {
+  font-family: var(--biox-font-body);
+}
+
+/* Custom containers */
+.custom-block.tip {
+  border-color: var(--biox-green);
+  background-color: rgba(51, 214, 166, 0.1);
+}
+
+.custom-block.warning {
+  border-color: var(--biox-yellow);
+  background-color: rgba(241, 196, 15, 0.1);
+}
+
+.custom-block.danger {
+  border-color: var(--biox-red);
+  background-color: rgba(236, 55, 80, 0.1);
+}
+
+.custom-block.info {
+  border-color: var(--biox-blue);
+  background-color: rgba(51, 142, 218, 0.1);
+}
+
+/* ==========================================================================
+   Responsive Typography
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--biox-font-size-4);
+  }
+
+  h2 {
+    font-size: var(--biox-font-size-3);
+  }
+
+  h3 {
+    font-size: var(--biox-font-size-2);
+  }
+
+  .biox-text-ultratitle {
+    font-size: var(--biox-font-size-5);
+  }
+
+  .biox-text-title {
+    font-size: var(--biox-font-size-4);
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  :root {
+    --biox-text: #000;
+    --biox-background: #fff;
+  }
+
+  .VPNav,
+  .VPSidebar {
+    display: none !important;
+  }
+}

@@ -17,7 +17,7 @@ Renders markdown to HTML.
 **Example:**
 
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render('# Hello World')
 // Returns: <h1>Hello World</h1>

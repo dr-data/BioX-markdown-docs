@@ -11,5 +11,8 @@
   "devDependencies": {
     "vitepress": "^1.6.4",
     "vue": "^3.5.26"
+  },
+  "dependencies": {
+    "@bio-x/theme": "^1.0.1"
   }
 }

@@ -202,7 +202,7 @@ Contact support@example.com for help.
 Configure `filePath` option to resolve relative image paths:
 
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   filePath: '/path/to/your/markdown.md'

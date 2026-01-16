@@ -6,7 +6,7 @@ Real-world examples of using BioX-markdown in various scenarios.
 
 ### Next.js with MDX
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 import fs from 'fs/promises'
 import path from 'path'
 
@@ -24,7 +24,7 @@ export default async function Post({ params }) {
 
 ### React App
 ```jsx
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 import { useEffect, useState } from 'react'
 
 function MarkdownEditor() {
@@ -56,7 +56,7 @@ function MarkdownEditor() {
 ### Express Endpoint
 ```javascript
 import express from 'express'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const app = express()
 
@@ -74,7 +74,7 @@ app.listen(3000)
 ### Fastify Endpoint
 ```javascript
 import Fastify from 'fastify'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const fastify = Fastify()
 
@@ -94,7 +94,7 @@ await fastify.listen({ port: 3000 })
 ```javascript
 // app/api/render/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 export async function POST(request: NextRequest) {
   const { markdown, options } = await request.json()
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
 
 ### With TypeScript
 ```typescript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 interface RenderOptions {
   markdown: string
@@ -145,7 +145,7 @@ const result = renderMarkdown({
 
 <script setup>
 import { ref } from 'vue'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const markdown = ref('# Hello World')
 const renderedHtml = ref('')
@@ -159,7 +159,7 @@ function handleInput() {
 ### Svelte Component
 ```svelte
 <script>
-  import { render } from '@biox/markdown'
+  import { render } from '@bio-x/markdown'
   
   let markdown = '# Hello World'
   let html = ''
@@ -178,7 +178,7 @@ function handleInput() {
 ### Bun Server
 ```javascript
 import { serve } from 'bun'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const server = serve({
   port: 3000,
@@ -201,7 +201,7 @@ console.log('Server running on http://localhost:3000')
 ### Node.js Server
 ```javascript
 import http from 'http'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const server = http.createServer(async (req, res) => {
   if (req.method === 'POST') {
@@ -228,7 +228,7 @@ server.listen(3000)
 
 ### Custom Syntax Highlighting
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   highlight: {
@@ -240,7 +240,7 @@ const html = render(markdown, {
 
 ### LaTeX with Custom Macros
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   latex: {
@@ -257,7 +257,7 @@ const html = render(markdown, {
 
 ### Trusted LaTeX Mode
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   latex: {
@@ -272,7 +272,7 @@ const html = render(markdown, {
 
 ### Custom Image Handler
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   handlers: {
@@ -299,7 +299,7 @@ const html = render(markdown, {
 
 ### Remove First H1
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   removeTitle: true
@@ -308,7 +308,7 @@ const html = render(markdown, {
 
 ### Image Path Handling
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 import path from 'path'
 
 const html = render(markdown, {
@@ -321,7 +321,7 @@ const html = render(markdown, {
 
 ### Basic Error Handling
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 try {
   const html = render(markdown)
@@ -336,7 +336,7 @@ try {
 
 ### LaTeX Error Handling
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const html = render(markdown, {
   latex: {
@@ -352,7 +352,7 @@ const html = render(markdown, {
 
 ### Caching Rendered HTML
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 const cache = new Map()
 
@@ -374,7 +374,7 @@ const html2 = cachedRender('# Document 1')  // Returns from cache
 
 ### Streaming for Large Documents
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 function* streamRender(markdown) {
   // Process in chunks for very large documents
@@ -396,7 +396,7 @@ for (const html of streamRender(largeMarkdown)) {
 ### Unit Test Example
 ```javascript
 import test from 'ava'
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 test('renders basic markdown', (t) => {
   const markdown = '# Hello World'
@@ -408,7 +408,7 @@ test('renders basic markdown', (t) => {
 
 ### Integration Test
 ```javascript
-import { render } from '@biox/markdown'
+import { render } from '@bio-x/markdown'
 
 // Test all features
 const features = [
